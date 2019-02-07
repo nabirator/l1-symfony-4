@@ -9,10 +9,14 @@
         "symfony/console": "*",
         "symfony/flex": "^1.1",
         "symfony/framework-bundle": "*",
-        "symfony/yaml": "*"
+        "symfony/orm-pack": "^1.0",
+        "symfony/yaml": "*",
+        "twbs/bootstrap": "^4.1"
     },
     "require-dev": {
         "symfony/dotenv": "*",
+        "symfony/maker-bundle": "^1.11",
+        "symfony/var-dumper": "*",
         "symfony/web-server-bundle": "*"
     },
     "config": {
