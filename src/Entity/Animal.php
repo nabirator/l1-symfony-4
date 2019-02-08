@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -52,16 +50,6 @@ class Animal
      * @ORM\Column(type="smallint")
      */
     private $weight;
-
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Human", mappedBy="animals")
-     */
-    private $humans;
-
-    public function __construct()
-    {
-        $this->humans = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -148,37 +136,6 @@ class Animal
     public function setWeight(int $weight): self
     {
         $this->weight = $weight;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Human[]
-     */
-    public function getHumans(): Collection
-    {
-        return $this->humans;
-    }
-
-    public function addHuman(Human $human): self
-    {
-        if (!$this->humans->contains($human)) {
-            $this->humans[] = $human;
-            $human->setAnimals($this);
-        }
-
-        return $this;
-    }
-
-    public function removeHuman(Human $human): self
-    {
-        if ($this->humans->contains($human)) {
-            $this->humans->removeElement($human);
-            // set the owning side to null (unless already changed)
-            if ($human->getAnimals() === $this) {
-                $human->setAnimals(null);
-            }
-        }
 
         return $this;
     }

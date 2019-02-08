@@ -19,7 +19,6 @@ class AnimalType extends AbstractType
             ->add('gender')
             ->add('breed')
             ->add('weight')
-            ->add('humans')
         ;
     }
 

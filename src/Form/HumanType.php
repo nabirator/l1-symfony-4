@@ -22,7 +22,6 @@ class HumanType extends AbstractType
             ->add('dob', DateType::class, [
                 'years' => range(1917, date('Y'))
             ])
-            ->add('animals')
         ;
     }
 

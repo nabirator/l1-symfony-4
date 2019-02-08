@@ -51,11 +51,6 @@ class Human
      */
     private $dob;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Animal", inversedBy="humans")
-     */
-    private $animals;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -141,18 +136,6 @@ class Human
     public function setDob(\DateTimeInterface $dob): self
     {
         $this->dob = $dob;
-
-        return $this;
-    }
-
-    public function getAnimals(): ?Animal
-    {
-        return $this->animals;
-    }
-
-    public function setAnimals(?Animal $animals): self
-    {
-        $this->animals = $animals;
 
         return $this;
     }
