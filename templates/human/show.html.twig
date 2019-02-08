@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Human{% endblock %}
+
+{% block body %}
+    <h1>Human</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ human.id }}</td>
+            </tr>
+            <tr>
+                <th>FirstName</th>
+                <td>{{ human.firstName }}</td>
+            </tr>
+            <tr>
+                <th>LastName</th>
+                <td>{{ human.lastName }}</td>
+            </tr>
+            <tr>
+                <th>Age</th>
+                <td>{{ human.age }}</td>
+            </tr>
+            <tr>
+                <th>Height</th>
+                <td>{{ human.height }}</td>
+            </tr>
+            <tr>
+                <th>Weight</th>
+                <td>{{ human.weight }}</td>
+            </tr>
+            <tr>
+                <th>Gender</th>
+                <td>{{ human.gender }}</td>
+            </tr>
+            <tr>
+                <th>Dob</th>
+                <td>{{ human.dob ? human.dob|date('Y-m-d') : '' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('human_index') }}">back to list</a>
+
+    <a href="{{ path('human_edit', {'id': human.id}) }}">edit</a>
+
+    {{ include('human/_delete_form.html.twig') }}
+{% endblock %}

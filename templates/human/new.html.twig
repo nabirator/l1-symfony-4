@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Human{% endblock %}
+
+{% block body %}
+    <h1>Create new Human</h1>
+
+    {{ include('human/_form.html.twig') }}
+
+    <a href="{{ path('human_index') }}">back to list</a>
+{% endblock %}
