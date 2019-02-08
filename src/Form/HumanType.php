@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Human;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -18,7 +19,9 @@ class HumanType extends AbstractType
             ->add('height')
             ->add('weight')
             ->add('gender')
-            ->add('dob')
+            ->add('dob', DateType::class, [
+                'years' => range(1917, date('Y'))
+            ])
         ;
     }
 
