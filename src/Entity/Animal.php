@@ -46,6 +46,11 @@ class Animal
      */
     private $breed;
 
+    /**
+     * @ORM\Column(type="smallint")
+     */
+    private $weight;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -119,6 +124,18 @@ class Animal
     public function setBreed(string $breed): self
     {
         $this->breed = $breed;
+
+        return $this;
+    }
+
+    public function getWeight(): ?int
+    {
+        return $this->weight;
+    }
+
+    public function setWeight(int $weight): self
+    {
+        $this->weight = $weight;
 
         return $this;
     }
