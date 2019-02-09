@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Human index{% endblock %}
+
+{% block body %}
+    <h1>Human index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Age</th>
+                <th>Height</th>
+                <th>Weight</th>
+                <th>Gender</th>
+                <th>Dob</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for human in humans %}
+            <tr>
+                <td>{{ human.id }}</td>
+                <td>{{ human.firstName }}</td>
+                <td>{{ human.lastName }}</td>
+                <td>{{ human.age }}</td>
+                <td>{{ human.height }}</td>
+                <td>{{ human.weight }}</td>
+                <td>{{ human.gender }}</td>
+                <td>{{ human.dob ? human.dob|date('Y-m-d') : '' }}</td>
+                <td>
+                    <a href="{{ path('human_show', {'id': human.id}) }}">show</a>
+                    <a href="{{ path('human_edit', {'id': human.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('human_new') }}">Create new</a>
+{% endblock %}
